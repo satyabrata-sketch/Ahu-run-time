@@ -1,0 +1,6 @@
+{
+  "name": "AHU Savings",
+  "description": "Air Handling Unit energy savings calculator, schedule optimization, entry history, and role-based admin dashboard.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
