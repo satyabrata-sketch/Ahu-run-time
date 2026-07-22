@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [AhuEntry::class], version = 1, exportSchema = false)
+@Database(entities = [AhuEntry::class], version = 2, exportSchema = false)
 abstract class AhuDatabase : RoomDatabase() {
     abstract fun ahuDao(): AhuDao
 
@@ -19,7 +19,9 @@ abstract class AhuDatabase : RoomDatabase() {
                     context.applicationContext,
                     AhuDatabase::class.java,
                     "ahu_savings_database"
-                ).build()
+                )
+                .fallbackToDestructiveMigration()
+                .build()
                 INSTANCE = instance
                 instance
             }

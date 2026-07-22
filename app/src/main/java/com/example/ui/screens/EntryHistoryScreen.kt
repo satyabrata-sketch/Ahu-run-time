@@ -313,7 +313,7 @@ fun AhuEntryCard(
 
             Spacer(modifier = Modifier.height(10.dp))
 
-            // Tech Specs
+            // Tech Specs & Meter Readings
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween
@@ -325,10 +325,30 @@ fun AhuEntryCard(
                 )
 
                 Text(
-                    text = "Hours: ${entry.standardWeeklyHours.toInt()}h → ${entry.optimizedWeeklyHours.toInt()}h/wk",
+                    text = "ON: ${entry.onTime} - OFF: ${entry.offTime}",
                     fontSize = 11.sp,
                     fontWeight = FontWeight.Medium,
+                    color = EnergyTeal
+                )
+            }
+
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 4.dp),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Text(
+                    text = "Readings: ${String.format("%,.1f", entry.kwhReading)} kWh | ${String.format("%,.0f", entry.btuReading)} BTU",
+                    fontSize = 11.sp,
+                    fontWeight = FontWeight.SemiBold,
                     color = MaterialTheme.colorScheme.onSurface
+                )
+
+                Text(
+                    text = "${entry.standardWeeklyHours.toInt()}h → ${entry.optimizedWeeklyHours.toInt()}h/wk",
+                    fontSize = 11.sp,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
 

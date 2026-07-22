@@ -16,8 +16,13 @@ data class AhuEntry(
     val scheduleNotes: String,
     val electricityRate: Double, // $ / kWh
     val vfdSpeedPercent: Double, // 100% = full speed, e.g. 80% = 80
+    val onTime: String = "08:00 AM",
+    val offTime: String = "08:00 PM",
+    val kwhReading: Double = 0.0,
+    val btuReading: Double = 0.0,
     val annualKwhSaved: Double,
     val annualCostSaved: Double,
     val co2SavedTons: Double,
     val timestamp: Long = System.currentTimeMillis()
 )
+
